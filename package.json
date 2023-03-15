@@ -10,7 +10,7 @@
 		"client": "npm start --prefix client",
 		"clientinstall": "npm install --prefix client",
 		"serverinstall": "npm install",
-		"install": "npm install && npm install --prefix client",
+		"install": "npm run serverinstall && npm run clientinstall",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"author": "Felipe Falco",
