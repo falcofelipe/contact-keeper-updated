@@ -18,11 +18,16 @@ app.use('/api/contacts', require('./routes/contacts'));
 // Serve static assets (REACT) in production
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
-	app.use(express.static('client/build'));
+	app.use(express.static(path.join(__dirname, './client/build')));
 
 	// Loads the home page when accessing routes that are not described above
 	app.get('*', (req, res) =>
-		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+		res.sendFile(
+			path.join(__dirname, './client/build/index.html'),
+			function (err) {
+				res.status(500).send(err);
+			}
+		)
 	);
 }
 
