@@ -9,6 +9,8 @@
 		"build": "npm run build --prefix client",
 		"client": "npm start --prefix client",
 		"clientinstall": "npm install --prefix client",
+		"serverinstall": "npm install",
+		"install": "npm install concurrently --save & concurrently \"npm run serverinstall\" \"npm run clientinstall\"",
 		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"author": "Felipe Falco",
