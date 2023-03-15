@@ -18,6 +18,8 @@ app.use('/api/contacts', require('./routes/contacts'));
 // Serve static assets (REACT) in production
 if (process.env.NODE_ENV === 'production') {
 	// Set static folder
+	console.log(path.join(__dirname, './client/build'));
+
 	app.use(express.static(path.join(__dirname, './client/build')));
 
 	// Loads the home page when accessing routes that are not described above
@@ -34,7 +36,5 @@ if (process.env.NODE_ENV === 'production') {
 /* LISTEN */
 
 const PORT = process.env.PORT || 5000; //To account for deployment and development
-
-console.log(PORT);
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
